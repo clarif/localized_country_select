@@ -1,4 +1,10 @@
---
+== Intro
+
+This plugin is a fork of the localized_country_select plugin available at http://github.com/karmi/localized_country_select.
+
+Only minors changes have been done to be compliant with the former select_country from Rails. It allows this plugin to be 
+used with the Formtastic gem (see in the "example" section) to provide 1/ localized countries and 2/ country codes stored in the DB (instead of country name). 
+
 
 = LocalizedCountrySelect
 
@@ -35,6 +41,12 @@ will become:
     </select>
 
 for the <tt>en</tt> locale.
+
+To use this plugin with Formtastic:
+
+For a model which has a country_code attribute:
+<%= form.input :country_code, :as => :country, :priority_countries => ['fr', 'it', 'be'] %>
+
 
 == Other resources
 

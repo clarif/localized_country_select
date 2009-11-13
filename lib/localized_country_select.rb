@@ -71,6 +71,10 @@ module ActionView
         return country_options + options_for_select(LocalizedCountrySelect::localized_countries_array, selected)
       end
       
+      # aliases to expose same methods than the former country_select plugin.
+      alias :country_select :localized_country_select 
+      alias :country_select_tag :localized_country_select_tag
+      alias :country_options_for_select :localized_country_options_for_select
     end
 
     class InstanceTag
@@ -85,12 +89,17 @@ module ActionView
           ), html_options
         )
       end
+
+      # aliases to expose same methods than the former country_select plugin.
+      alias :to_country_select_tag :to_localized_country_select_tag
     end
     
     class FormBuilder
       def localized_country_select(method, priority_countries = nil, options = {}, html_options = {})
         @template.localized_country_select(@object_name, method, priority_countries, options.merge(:object => @object), html_options)
       end
+      # aliases to expose same methods than the former country_select plugin.
+      alias :country_select :localized_country_select
     end
 
   end
